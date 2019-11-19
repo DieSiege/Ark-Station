@@ -5,7 +5,8 @@
 	icon_state = "light-p"
 	anchored = TRUE
 	idle_power_usage = 20
-	var/area_light_color = "#FFFFFF"
+	var/broken = FALSE
+	var/area_light_color = "#fffee0"
 	var/area/connected_area = null
 
 /obj/machinery/light_color_switch/Initialize()
@@ -35,15 +36,17 @@
 
 /obj/machinery/light_color_switch/examine(mob/user, distance)
 	. = ..()
-	if(distance)
-		to_chat(user, "A light color switch. It is has <font color='[area_light_color]'><b>color set</b></font>.")
+	if(distance && area_light_color != initial(area_light_color))
+		to_chat(user, SPAN_NOTICE("It is has <font color='[area_light_color]'><b>color set</b></font>."))
 
 /obj/machinery/light_color_switch/interface_interact(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return FALSE
 	if(CanInteract(user, DefaultTopicState()))
+		if(broken)
+			to_chat(user, SPAN_WARNING("\The [src] is broken, crap!"))
+			return
 		switch_color(user, input("Input a color for this room.",, area_light_color) as null|color)
-		playsound(src, "switch", 30)
 		return TRUE
 
 /obj/machinery/light_color_switch/proc/switch_color(mob/user, color)
@@ -55,6 +58,9 @@
 		return
 	if(!user.Adjacent(src))
 		return
+	if(broken)
+		to_chat(user, SPAN_WARNING("\The [src] is broken, crap!"))
+		return
 
 	for(var/obj/machinery/light/L in connected_area)
 		if(!L.lightbulb)
@@ -65,9 +71,43 @@
 
 	area_light_color = color
 	update_icon()
+	playsound(src, "switch", 30)
 	to_chat(user, SPAN_NOTICE("You changed the area light color to a <font color='[color]'><b>new</b></font>."))
 
 /obj/machinery/light_color_switch/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
 		return
 
+	do_epilepsy_show(severity)
+
+/obj/machinery/light_color_switch/emag_act(remaining_charges, mob/user)
+	if(stat & (BROKEN|NOPOWER))
+		return FALSE
+
+	to_chat(user, SPAN_NOTICE("You have activated the epilepsy mode. We hope you are satisfied with yourself."))
+	do_epilepsy_show(rand(1,3))
+	return TRUE
+
+/obj/machinery/light_color_switch/proc/do_epilepsy_show(severity)
+	var/number_of_switchings = min(5 * severity, 15)
+	var/delay = max(5, 45 - 15 * severity)
+	broken = TRUE
+
+	while(number_of_switchings)
+		if(stat & (BROKEN|NOPOWER))
+			break
+
+		for(var/obj/machinery/light/L in connected_area)
+			if(!L.lightbulb)
+				continue
+			if(L.lightbulb.status != LIGHT_OK)
+				continue
+
+			L.lightbulb.b_colour = RANDOM_RGB
+			L.update_icon()
+
+		number_of_switchings--
+
+		sleep(delay)
+
+	broken = FALSE
