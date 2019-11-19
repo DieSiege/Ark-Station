@@ -65,6 +65,8 @@
 	for(var/obj/machinery/light/L in connected_area)
 		if(!L.lightbulb)
 			continue
+		if(L.lightbulb.status != LIGHT_OK)
+			continue
 
 		L.lightbulb.b_colour = color
 		L.update_icon()
