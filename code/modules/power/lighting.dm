@@ -326,7 +326,6 @@
 /obj/machinery/light/proc/remove_bulb()
 	. = lightbulb
 	lightbulb.dropInto(loc)
-	lightbulb.b_colour = initial(lightbulb.b_colour)
 	lightbulb.update_icon()
 	lightbulb = null
 	update_icon()

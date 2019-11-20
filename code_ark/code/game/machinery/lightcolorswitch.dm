@@ -67,6 +67,8 @@
 			continue
 		if(L.lightbulb.status != LIGHT_OK)
 			continue
+		if(!L.lightbulb.can_change_color)
+			continue
 
 		L.lightbulb.b_colour = color
 		L.update_icon()
@@ -74,7 +76,7 @@
 	area_light_color = color
 	update_icon()
 	playsound(src, "switch", 30)
-	to_chat(user, SPAN_NOTICE("You changed the area light color to a <font color='[color]'><b>new</b></font>."))
+	to_chat(user, SPAN_NOTICE("You have changed the area light color to a <font color='[color]'><b>new</b></font>."))
 
 /obj/machinery/light_color_switch/emp_act(severity)
 	if(stat & (BROKEN|NOPOWER))
@@ -103,6 +105,8 @@
 			if(!L.lightbulb)
 				continue
 			if(L.lightbulb.status != LIGHT_OK)
+				continue
+			if(!L.lightbulb.can_change_color)
 				continue
 
 			L.lightbulb.b_colour = RANDOM_RGB

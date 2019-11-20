@@ -3182,6 +3182,7 @@
 #include "code_ark\code\modules\organs\external\robolimbs.dm"
 #include "code_ark\code\modules\organs\external\species\resomi.dm"
 #include "code_ark\code\modules\organs\internal\species\resomi.dm"
+#include "code_ark\code\modules\power\lighting.dm"
 #include "code_ark\code\modules\species\species.dm"
 #include "code_ark\code\modules\species\station\resomi.dm"
 #include "code_ark\code\modules\sprite_accessories\accessory_resomi.dm"
