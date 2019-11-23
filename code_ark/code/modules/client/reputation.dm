@@ -43,7 +43,7 @@
 		to_chat(src, SPAN_WARNING("The player left the server. Aborting."))
 		return
 
-	var/DBQuery/query_my = ("UPDATE reputation SET lastrepchange = NOW() WHERE `key` = '[key]'")
+	var/DBQuery/query_my = dbcon.NewQuery("UPDATE reputation SET lastrepchange = NOW() WHERE `key` = '[key]'")
 	query_my.Execute()
 
 	verbs -= /client/proc/rate_player
@@ -51,7 +51,7 @@
 	GLOB.reputation.players["[target.key]"] += rate > 0 ? 1 : -1
 	GLOB.reputation.recalculate()
 
-	var/DBQuery/query_target = ("UPDATE reputation SET value = value + [rate] WHERE `key` = '[target.key]'")
+	var/DBQuery/query_target = dbcon.NewQuery("UPDATE reputation SET value = value + [rate] WHERE `key` = '[target.key]'")
 	query_target.Execute()
 
 	to_chat(target, SPAN_NOTICE("You got a [rate > 0 ? "POSITIVE" : "NEGATIVE"] reputation point from [anon == "yes" ? "Anon" : key]!"))
