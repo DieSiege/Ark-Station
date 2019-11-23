@@ -28,7 +28,7 @@
 /obj/effect/overmap/visitable/ship/landable/prometeus
 	name = "Prometeus"
 	shuttle = "Prometeus"
-	vessel_mass = 7500
+	vessel_mass = 4500
 	fore_dir = WEST
 
 /obj/effect/overmap/visitable/ship/landable/perseus
