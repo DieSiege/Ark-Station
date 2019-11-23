@@ -20,3 +20,7 @@
 
 /obj/machinery/door/firedoor/prometeus
 	req_access = list(access_castelnau_prometeus)
+
+//OTHER
+/obj/machinery/emitter/gyrotron
+	req_access = list(null)
