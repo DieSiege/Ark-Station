@@ -47,15 +47,12 @@
 						list_of_accesses += "RD_ERR"
 				. += jointext(list_of_accesses, ", ") + "\n" // Should append a proper, comma separated list.
 
-/obj/item/weapon/stock_parts/computer/card_slot/verb/verb_eject_id(mob/user)
+/obj/item/weapon/stock_parts/computer/card_slot/verb/verb_eject_id()
 	set name = "Remove ID"
 	set category = "Object"
 	set src in view(1)
 
-	if(!user)
-		user = usr
-
-	if(!CanPhysicallyInteract(user))
+	if(!CanPhysicallyInteract(usr))
 		to_chat(usr, "<span class='warning'>You can't reach it.</span>")
 		return
 
@@ -64,10 +61,10 @@
 		device = locate() in src
 
 	if(!device.stored_card)
-		to_chat(user, "There is no card in \the [src]")
+		to_chat(usr, "There is no card in \the [src]")
 		return
 
-	device.eject_id(user)
+	device.eject_id(usr)
 
 /obj/item/weapon/stock_parts/computer/card_slot/proc/eject_id(mob/user)
 	if(!stored_card)
