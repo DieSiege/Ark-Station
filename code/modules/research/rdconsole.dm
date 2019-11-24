@@ -662,7 +662,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 			if(linked_destroy)
 				dat += "<LI>Destructive Analyzer <A href='?src=\ref[src];disconnect=destroy'>(Disconnect)</A>"
 			else
-				if (can_analyze == TRUE) 
+				if (can_analyze == TRUE)
 					dat += "<LI>(No Destructive Analyzer Linked)"
 			if(linked_lathe)
 				dat += "<LI>Protolathe <A href='?src=\ref[src];disconnect=lathe'>(Disconnect)</A>"
@@ -720,9 +720,9 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					continue
 				var/temp_dat
 				for(var/M in D.materials)
-					temp_dat += ", [D.materials[M]] [CallMaterialName(M)]"
+					temp_dat += ", [D.materials[M] * linked_lathe.mat_efficiency] [CallMaterialName(M)]"
 				for(var/T in D.chemicals)
-					temp_dat += ", [D.chemicals[T]*(linked_imprinter ? linked_imprinter.mat_efficiency : 1)] [CallReagentName(T)]"
+					temp_dat += ", [D.chemicals[T] * linked_lathe.mat_efficiency] [CallReagentName(T)]"
 				if(temp_dat)
 					temp_dat = " \[[copytext(temp_dat, 3)]\]"
 				if(linked_lathe.canBuild(D))
@@ -877,7 +877,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 /obj/machinery/computer/rdconsole/core
 	name = "core fabricator console"
 	id = 1
-	
+
 
 #undef CHECK_LATHE
 #undef CHECK_IMPRINTER
