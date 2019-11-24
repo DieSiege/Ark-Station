@@ -1,4 +1,4 @@
-/obj/item/clothing/head/wig/longbraided
+/obj/item/clothing/head/wig/longbraided //farwa
 	name = "wig"
 	desc = "A wig resembling a long braided haircut."
 	icon = CUSTOM_ICON_HEAD
