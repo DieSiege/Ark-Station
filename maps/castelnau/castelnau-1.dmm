@@ -41,7 +41,7 @@
 "aO" = (/obj/structure/table/rack,/obj/structure/railing/mapped,/obj/random/toolbox,/obj/machinery/alarm{alarm_id = "xenobio2_alarm"; dir = 4; pixel_x = -24},/obj/machinery/atmospherics/unary/vent_pump/on,/turf/simulated/floor/plating,/area/castelnau/maintenance/thirddeck/starboard)
 "aP" = (/obj/structure/table/rack,/obj/structure/railing/mapped,/obj/random/maintenance,/obj/random/maintenance,/turf/simulated/floor/plating,/area/castelnau/maintenance/thirddeck/starboard)
 "aQ" = (/obj/structure/table/rack,/obj/structure/railing/mapped,/obj/random/maintenance,/obj/item/weapon/storage/box/lights/mixed,/turf/simulated/floor/plating,/area/castelnau/maintenance/thirddeck/starboard)
-"aR" = (/obj/machinery/atmospherics/unary/tank/air{dir = 4; icon_state = "air_map"},/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/light/small/red{dir = 8},/turf/simulated/floor,/area/shuttle/castelnau/prometeus/power)
+"aR" = (/obj/machinery/atmospherics/unary/tank/air{dir = 4; icon_state = "air"},/obj/effect/floor_decal/industrial/outline/blue,/obj/machinery/light/small/red{dir = 8},/turf/simulated/floor,/area/shuttle/castelnau/prometeus/power)
 "aS" = (/obj/machinery/atmospherics/pipe/simple/hidden/cyan{dir = 10},/obj/structure/catwalk,/obj/machinery/alarm{pixel_y = 24; req_access = list("ACCESS_PROMETEUS")},/turf/simulated/floor,/area/shuttle/castelnau/prometeus/power)
 "aT" = (/obj/machinery/atmospherics/pipe/simple/hidden{dir = 5},/obj/structure/catwalk,/turf/simulated/floor,/area/shuttle/castelnau/prometeus/power)
 "aU" = (/obj/machinery/atmospherics/pipe/manifold/hidden,/obj/structure/catwalk,/turf/simulated/floor,/area/shuttle/castelnau/prometeus/power)
