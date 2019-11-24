@@ -433,6 +433,8 @@ proc/TextPreview(var/string,var/len=40)
 	text = replacetext(text, "\[fontblue\]", "<font color=\"blue\">")//</font> to pass travis html tag integrity check
 	text = replacetext(text, "\[fontgreen\]", "<font color=\"green\">")
 	text = replacetext(text, "\[/font\]", "</font>")
+	text = replacetext(text, "\[img\]","<img src=\"")
+	text = replacetext(text, "\[/img\]", "\" />")
 	return pencode2html(text)
 
 //Will kill most formatting; not recommended.
