@@ -2,6 +2,7 @@
 	display_name = "PDA selection"
 	path = /obj/item/modular_computer/pda
 	cost = 2
+	pda_replacement = TRUE
 
 /datum/gear/utility/pda/New()
 	..()

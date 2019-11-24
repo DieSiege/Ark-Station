@@ -216,6 +216,10 @@ var/list/outfits_decls_by_type_
 		return
 	if(OUTFIT_ADJUSTMENT_SKIP_ID_PDA & equip_adjustments)
 		return
+	for(var/i in H.client.prefs.gear_list)
+		var/datum/gear/G = gear_datums[i]
+		if(G.pda_replacement)
+			return
 	var/obj/item/modular_computer/pda/pda = new pda_type(H)
 	if(H.equip_to_slot_or_store_or_drop(pda, pda_slot))
 		return pda

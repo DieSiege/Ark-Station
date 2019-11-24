@@ -357,6 +357,7 @@ var/list/gear_datums = list()
 	var/list/gear_tweaks = list() //List of datums which will alter the item after it has been spawned.
 
 	var/allowed_client_age = 0 // ark code
+	var/pda_replacement = FALSE
 
 /datum/gear/New()
 	if(FLAGS_EQUALS(flags, GEAR_HAS_TYPE_SELECTION|GEAR_HAS_SUBTYPE_SELECTION))
