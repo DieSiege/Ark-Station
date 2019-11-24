@@ -15,7 +15,7 @@
 
 //Pods
 #define CASTELNAU_ESCAPE_POD(NUMBER) \
-/datum/shuttle/autodock/ferry/escape_pod/torchpod/escape_pod##NUMBER { \
+/datum/shuttle/autodock/ferry/escape_pod/castelnaupod/escape_pod##NUMBER { \
 	shuttle_area = /area/shuttle/escape_pod##NUMBER/station; \
 	name = "Escape Pod " + #NUMBER; \
 	dock_target = "escape_pod_" + #NUMBER; \
