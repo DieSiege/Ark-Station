@@ -60,7 +60,8 @@
 	set name = "Lore"
 	set desc = "Links to the beginner Lore wiki."
 	set hidden = 1
-	show_browser(src, file(LORE_FILE), "window=lore;size=480x320")
+	if(fexists(LORE_FILE))
+		show_browser(src, file(LORE_FILE), "window=lore;size=480x320")
 #undef LORE_FILE
 
 /client/verb/hotkeys_help()
