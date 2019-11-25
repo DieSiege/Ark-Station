@@ -549,6 +549,20 @@
 				flavor_texts[href_list["flavor_change"]] = msg
 				set_flavor()
 				return
+
+		if(href_list["check_records"])
+			if(!isghost(usr))
+				return
+			var/datum/browser/popup = new(usr, "records", "[real_name]'s records", 520, 640)
+			var/datum/computer_file/report/crew_record/E = get_crewmember_record(real_name)
+			if(E)
+				popup.add_content(pencode2html("\
+				<h1><b>GENERAL NOTES</b></h1>[E.get_public_record()]<br><hr>	\
+				<h1><b>MEDICAL RECORD</b></h1>[E.get_medRecord()]<br><hr>		\
+				<h1><b>SECURITY RECORD</b></h1>[E.get_secRecord()]<br><hr>		\
+				<h1><b>EMPLOYMENT RECORD</b></h1>[E.get_emplRecord()]<br><hr>"))
+				popup.open()
+
 	..()
 	return
 
