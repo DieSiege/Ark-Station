@@ -19,7 +19,7 @@
 "as" = (/obj/structure/catwalk,/obj/machinery/atmospherics/pipe/simple/hidden/fuel{dir = 6},/turf/simulated/floor/airless,/area/castelnau/thruster/d1starboard)
 "at" = (/obj/machinery/atmospherics/unary/engine{dir = 8},/turf/simulated/wall/r_wall/hull,/area/castelnau/thruster/d1starboard)
 "au" = (/obj/structure/lattice,/obj/structure/catwalk,/obj/structure/railing/mapped{dir = 8},/turf/space,/area/space)
-"av" = (/obj/machinery/door/blast/shutters{density = 0; dir = 2; icon_state = "shutter0"},/obj/structure/table/reinforced,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/door/window/southleft{req_access = list("ACCESS_CASTELNAU_COM_OFFICE")},/turf/simulated/floor/tiled/monotile,/area/castelnau/command/captain)
+"av" = (/obj/machinery/door/blast/shutters{density = 0; dir = 2; icon_state = "shutter0"},/obj/structure/table/reinforced,/obj/effect/floor_decal/industrial/outline/yellow,/obj/machinery/door/window/southleft{autoset_access = 0; req_access = list("ACCESS_CASTELNAU_COM_OFFICE")},/turf/simulated/floor/tiled/monotile,/area/castelnau/command/captain)
 "aw" = (/obj/machinery/atmospherics/unary/outlet_injector{dir = 8; icon_state = "map_injector"; id = "fuel2_in"; pixel_y = 1; use_power = 1},/turf/simulated/floor/reinforced/castelnau/fuel,/area/castelnau/thruster/d1starboard)
 "ax" = (/obj/structure/catwalk,/obj/machinery/alarm{alarm_id = "xenobio4_alarm"; pixel_y = 24},/turf/simulated/floor/plating,/area/castelnau/thruster/d1starboard)
 "ay" = (/obj/machinery/firealarm{dir = 8; pixel_x = -24; pixel_y = 4},/obj/structure/sign/warning/nosmoking_burned{pixel_y = 32},/obj/structure/ladder,/turf/simulated/open,/area/castelnau/thruster/d1starboard)
